@@ -2,7 +2,7 @@
     "name": "bryglen/yii2-sendgrid",
     "description": "Sendgrid Mailer for Yii 2",
     "type": "yii2-extension",
-    "keywords": ["yii2","extension"," sendgrid", "bryglen"],
+    "keywords": ["yii2", "extension", "sendgrid", "bryglen"],
     "license": "MIT",
     "version": "1.0.0",
     "authors": [
