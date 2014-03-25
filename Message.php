@@ -27,7 +27,7 @@ class Message extends BaseMessage
      */
     public function getCharset()
     {
-        return;
+        // not available on sendgrid
     }
 
     /**
@@ -35,7 +35,7 @@ class Message extends BaseMessage
      */
     public function setCharset($charset)
     {
-
+        // not available on sendgrid
     }
 
     /**
@@ -181,7 +181,7 @@ class Message extends BaseMessage
      */
     public function attachContent($content, array $options = [])
     {
-
+        // no available method for sendgrid
     }
 
     /**
@@ -189,7 +189,7 @@ class Message extends BaseMessage
      */
     public function embed($fileName, array $options = [])
     {
-
+        // no available method for sendgrid
     }
 
     /**
@@ -197,7 +197,7 @@ class Message extends BaseMessage
      */
     public function embedContent($content, array $options = [])
     {
-
+        // no available method for sendgrid
     }
 
     /**

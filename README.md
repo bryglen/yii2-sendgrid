@@ -1,6 +1,6 @@
-Yii 2 sendgrid
+Yii 2 bryglen SendGrid
 ==============
-sendgrid mailer
+Sendgrid Mailer for Yii 2
 
 Installation
 ------------
@@ -27,5 +27,28 @@ Usage
 
 Once the extension is installed, simply use it in your code by  :
 
+To use Mailer, you should configure it in the application configuration like the following,
+
 ```php
-<?= \bryglen\sendgrid\AutoloadExample::widget(); ?>```
+'components' => [
+	...
+	'sendGrid' => [
+		'class' => 'bryglen\sendgrid\Mailer',
+		'username' => 'your_user_name',
+		'password' => 'your password here',
+		//'viewPath' => '@app/views/mail', // your view path here
+	],
+	...
+],
+```
+
+To send an email, you may use the following code:
+
+```php
+$sendGrid = Yii::$app->sendGrid;
+$message = $sendGrid->compose('contact/html', ['contactForm' => $form])
+$message->setFrom('from@domain.com')
+	->setTo($form->email)
+	->setSubject($form->subject)
+	->send($sendGrid);
+```
