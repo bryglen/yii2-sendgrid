@@ -87,7 +87,11 @@ class Message extends BaseMessage
      */
     public function setTo($to)
     {
-        $this->getSendGridMessage()->addTo($to);
+        if (is_array($to)) {
+            $this->getSendGridMessage()->setTos($to);
+        } else {
+            $this->getSendGridMessage()->addTo($to);
+        }
 
         return $this;
     }

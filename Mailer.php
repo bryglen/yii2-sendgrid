@@ -91,6 +91,7 @@ class Mailer extends BaseMailer
      * @param string $username the username for the sendgrid api
      * @param string $password the password for the sendgrid api
      * @return \SendGrid
+     * @throws \yii\base\InvalidConfigException
      */
     public function createSendGridMailer($username, $password)
     {
