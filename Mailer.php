@@ -68,7 +68,7 @@ class Mailer extends BaseMailer
     /**
      * @var array a list of errors
      */
-    private $_errors = array();
+    private $_errors = [];
     /**
      * @var string Send grid mailer instance
      */
@@ -120,7 +120,7 @@ class Mailer extends BaseMailer
         $responseArray = Json::decode($this->getRawResponse());
 
         if (!isset($responseArray['message'])) {
-            throw new Exception('Invalid SendGrid response format');
+            throw new \Exception('Invalid SendGrid response format');
         } elseif ($responseArray['message'] === "success") {
             // reset the error if success
             $this->setErrors(array());
