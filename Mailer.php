@@ -62,6 +62,10 @@ class Mailer extends BaseMailer
      */
     public $password;
     /**
+     * @var array a list of options for the sendgrid api
+     */
+    public $options = [];
+    /**
      * @var string a json string of the raw response from the sendgrid
      */
     private $_rawResponse;
@@ -80,7 +84,7 @@ class Mailer extends BaseMailer
     public function getSendGridMailer()
     {
         if (!is_object($this->_sendGridMailer)) {
-            $this->_sendGridMailer = $this->createSendGridMailer($this->username, $this->password);
+            $this->_sendGridMailer = $this->createSendGridMailer($this->username, $this->password, $this->options);
         }
 
         return $this->_sendGridMailer;
@@ -93,7 +97,7 @@ class Mailer extends BaseMailer
      * @return \SendGrid
      * @throws \yii\base\InvalidConfigException
      */
-    public function createSendGridMailer($username, $password)
+    public function createSendGridMailer($username, $password, $options)
     {
         if (!$username) {
             throw new InvalidConfigException("Username cannot be empty.");
@@ -101,7 +105,7 @@ class Mailer extends BaseMailer
         if (!$password) {
             throw new InvalidConfigException("Password cannot be empty.");
         }
-        $sendgrid = new \SendGrid($username, $password);
+        $sendgrid = new \SendGrid($username, $password , $options);
 
         return $sendgrid;
     }
