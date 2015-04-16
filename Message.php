@@ -51,7 +51,12 @@ class Message extends BaseMessage
      */
     public function setFrom($from)
     {
-        $this->getSendGridMessage()->setFrom($from);
+        if (is_array($from)) {
+            $this->getSendGridMessage()->setFrom(key($from));
+            $this->getSendGridMessage()->setFromName(current($from));
+        } else {
+            $this->getSendGridMessage()->setFrom($from);
+        }
 
         return $this;
     }
