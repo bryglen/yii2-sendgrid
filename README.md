@@ -46,7 +46,7 @@ To send an email, you may use the following code:
 
 ```php
 $sendGrid = Yii::$app->sendGrid;
-$message = $sendGrid->compose('contact/html', ['contactForm' => $form])
+$message = $sendGrid->compose('contact/html', ['contactForm' => $form]);
 $message->setFrom('from@domain.com')
 	->setTo($form->email)
 	->setSubject($form->subject)
