@@ -216,7 +216,9 @@ class Message extends BaseMessage
     {
         $string = '';
         foreach ($this->getSendGridMessage()->toWebFormat() as $key => $value) {
-            $string .= sprintf("%s:%s\n", $key, $value);
+            if( !is_object($value) || (is_object($value) && method_exists( $value , 'toString' ))){
+                $string .= sprintf("%s:%s\n", $key, $value);
+            }
         }
         return $string;
     }
