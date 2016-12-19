@@ -16,7 +16,7 @@ php composer.phar require --prefer-dist bryglen/yii2-sendgrid "*"
 or add
 
 ```
-"bryglen/yii2-sendgrid": "1.1.2"
+"bryglen/yii2-sendgrid": "1.1.3"
 ```
 
 to the require section of your `composer.json` file.
